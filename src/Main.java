@@ -25,13 +25,17 @@ public class Main {
      */
     private static long getFibonacciHugeFast(long n, long m){
         //  create 1D array
-        long[] array = new long[(int)n + 1];
-        array[0] = 0;
-        array[1] = 1;
-        for(int i = 2; i < array.length; i++){
-            array[i] = array[i - 2] + array[i - 1];
+        if (n <= 1) {
+            return n;
+        } else {
+            long[] array = new long[(int)n + 1];
+            array[0] = 0L;
+            array[1] = 1L;
+            for(int i = 2; i < array.length; ++i) {
+                array[i] = array[i - 2] + array[i - 1];
+            }
+            return array[(int)n] % m;
         }
-        return array[(int)n] % m;
     }
 
     public static void main(String[] args) {
