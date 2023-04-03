@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Main {
@@ -23,18 +24,18 @@ public class Main {
      * @param m - the divisor to divide with in order to find the remainder
      * @return
      */
-    private static long getFibonacciHugeFast(long n, long m){
+    private static BigInteger getFibonacciHugeFast(long n, long m){
         //  create 1D array
         if (n <= 1) {
-            return n;
+            return BigInteger.valueOf(n);
         } else {
-            long[] array = new long[(int)n + 1];
-            array[0] = 0L;
-            array[1] = 1L;
+            BigInteger[] array = new BigInteger[(int)n + 1];
+            array[0] = BigInteger.valueOf(0);
+            array[1] = BigInteger.valueOf(1);
             for(int i = 2; i < array.length; ++i) {
-                array[i] = array[i - 2] + array[i - 1];
+                array[i] = array[i - 2].add(array[i - 1]);
             }
-            return array[(int)n] % m;
+            return array[(int)n].mod(BigInteger.valueOf(m));
         }
     }
 
