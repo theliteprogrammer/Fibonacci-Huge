@@ -28,15 +28,14 @@ public class Main {
         //  create 1D array
         if (n <= 1) {
             return BigInteger.valueOf(n);
-        } else {
-            BigInteger[] array = new BigInteger[(int)n + 1];
-            array[0] = BigInteger.valueOf(0);
-            array[1] = BigInteger.valueOf(1);
-            for(int i = 2; i < array.length; ++i) {
-                array[i] = array[i - 2].add(array[i - 1]);
-            }
-            return array[(int)n].mod(BigInteger.valueOf(m));
         }
+        BigInteger[] array = new BigInteger[(int)n + 1];
+        array[0] = BigInteger.valueOf(0);
+        array[1] = BigInteger.valueOf(1);
+        for(int i = 2; i < array.length; i++) {
+            array[i] = array[i - 2].add(array[i - 1]);
+        }
+        return array[(int)n].mod(BigInteger.valueOf(m));
     }
 
     public static void main(String[] args) {
